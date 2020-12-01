@@ -1,16 +1,43 @@
-import styles from '../../styles/Home.module.css'
+import {FiShoppingCart} from 'react-icons/fi'
+
+import {Main, Header, Container, CardProduct}  from '../styles/Home';
 
 export default function Home() {
   return (
-    <main>
-      <div className={styles.header}>
+    <Main>
+      <Header>
         <h1>Wow Commerce</h1>
-        <input className={styles.inputsearch} type="text" placeholder="Search Product"/>
-      </div>
+        <input type="text" placeholder="Search Product"/>
+      </Header>
 
-      <div className={styles.container}>
-        Content
-      </div>
-    </main>
+      <Container>
+        <CardProduct>
+          <img 
+            src="https://cdn.dooca.store/292/products/camiseta-one-piece-luffy-aberta.jpg?v=1585747520" 
+            alt="Camisa One Piece"
+          />
+
+          <div>
+            <p>
+              Product Name
+            </p>
+
+            <strong>
+              R$ 150,00
+            </strong>
+
+            <div>
+              <button>
+                Comprar Agora
+              </button>
+              
+              <button>
+                <FiShoppingCart />
+              </button>
+            </div>
+          </div>
+        </CardProduct>
+      </Container>
+    </Main>
   )
 }
