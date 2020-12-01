@@ -1,21 +1,21 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Main = styled.main`
-  /* width: 100%; */
-  /* height: 100%; */
-
   display: grid;
-  grid-template-columns: 1fr 70.0rem 1fr;
+  grid-template-columns: 15% 70% 15%;
   grid-template-rows: 6.4rem 100%;
-  grid-template-areas: 
+  grid-template-areas:
     'header header header'
     '. content .';
   row-gap: 1.6rem;
 
-  @media (max-width: 732px) {  
+  @media (max-width: 900px) {
+    grid-template-columns: 10% 80% 10%;
+  }
+
+  @media (max-width: 600px) {
     grid-template-columns: 1.6rem 1fr 1.6rem;
   }
-    
 `;
 
 export const Header = styled.div`
@@ -25,7 +25,7 @@ export const Header = styled.div`
   top: 0;
 
   padding: 0 4.8rem;
-  background: #673AB7;
+  background: #673ab7;
 
   display: flex;
   align-items: center;
@@ -37,7 +37,7 @@ export const Header = styled.div`
 
   input {
     background: transparent;
-    border: 2px solid #7E57C2;
+    border: 2px solid #7e57c2;
     border-radius: 8px;
     min-width: 400px;
     height: 40px;
@@ -45,7 +45,7 @@ export const Header = styled.div`
     color: white;
 
     ::placeholder {
-      color: rgba(255,255,255,0.5);
+      color: rgba(255, 255, 255, 0.5);
     }
   }
 `;
@@ -54,38 +54,39 @@ export const Container = styled.div`
   grid-area: content;
 
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-auto-flow: row; */
   gap: 1.6rem;
 
-  @media (max-width: 732px) {  
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 600px) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;
 
 export const CardProduct = styled.div`
-  background-color: #FFF;
-  border-radius: 12px;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 1.2rem;
 
   img {
-    max-width: 100%;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+    width: 100%;
+    border-top-left-radius: 1.2rem;
+    border-top-right-radius: 1.2rem;
   }
 
-  >div {
-
+  > div {
     padding: 0.8rem 1.6rem;
     border: 1px solid red;
 
     div {
-      button:first-of-type {
-        background-color: green;
-      }
-
-      button:last-of-type {
-        background-color: yellow;
-      }
+      margin-top: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
   }
 `;
