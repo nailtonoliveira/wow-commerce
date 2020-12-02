@@ -1,9 +1,11 @@
+import ButtonStyled from '../styles/components/Button';
+
 interface ButtonProps {
   children: React.ReactNode;
 }
 
 const Button = ({ children }: ButtonProps): JSX.Element => (
-  <button type="button">{children}</button>
+  <ButtonStyled type="button">{children}</ButtonStyled>
 );
 
 export default Button;

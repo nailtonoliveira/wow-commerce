@@ -26,6 +26,7 @@ export const Header = styled.div`
 
   padding: 0 4.8rem;
   background: #673ab7;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 
   display: flex;
   align-items: center;
@@ -54,9 +55,10 @@ export const Container = styled.div`
   grid-area: content;
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  /* grid-auto-flow: row; */
-  gap: 1.6rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: minmax(300px, auto);
+  grid-auto-flow: row dense;
+  grid-gap: 1.6rem;
 
   @media (max-width: 900px) {
     grid-template-columns: repeat(3, 1fr);
@@ -71,6 +73,7 @@ export const CardProduct = styled.div`
   height: 100%;
   background-color: #fff;
   border-radius: 1.2rem;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 
   img {
     width: 100%;
@@ -80,7 +83,19 @@ export const CardProduct = styled.div`
 
   > div {
     padding: 0.8rem 1.6rem;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+
+    p {
+      font-size: 1.8rem;
+    }
+
+    strong {
+      font-size: 2rem;
+
+      span {
+        font-size: 4.8rem;
+      }
+    }
 
     div {
       margin-top: 1.6rem;
