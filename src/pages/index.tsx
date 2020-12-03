@@ -1,11 +1,16 @@
+import { useRouter } from 'next/router';
+
 import { MdAddShoppingCart } from 'react-icons/md';
 
 import Button from '../components/Button';
 import IconButton from '../components/IconButton';
+import TextMoney from '../components/TextMoney';
 
 import { Main, Header, Container, CardProduct } from '../styles/Home';
 
 const Home = (): JSX.Element => {
+  const router = useRouter();
+  console.log(router);
   return (
     <Main>
       <Header>
@@ -23,9 +28,9 @@ const Home = (): JSX.Element => {
           <div>
             <p>Product Name</p>
 
-            <strong>R$ 150,00</strong>
+            <TextMoney>R$ 150,00</TextMoney>
 
-            <div>
+            <div id="actionsWrapper">
               <Button>Comprar Agora</Button>
 
               <IconButton>
@@ -149,7 +154,7 @@ const Home = (): JSX.Element => {
           <div>
             <p>Product Name</p>
 
-            <strong>R$ <span>150</span>,00</strong>
+            <strong>R$ 150,00</strong>
 
             <div>
               <Button>Comprar Agora</Button>

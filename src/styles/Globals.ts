@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   * {
@@ -12,11 +12,8 @@ export default createGlobalStyle`
     font-size: 60%;
   }
 
-  html, body {
-    height: 100vh;
-  }
-
   body {
+    height: 100vh;
     background: #f0f0f0;
     -webkit-font-smoothing: antialiased;
   }

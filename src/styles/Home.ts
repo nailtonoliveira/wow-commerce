@@ -2,18 +2,22 @@ import styled from 'styled-components';
 
 export const Main = styled.main`
   display: grid;
-  grid-template-columns: 15% 70% 15%;
+  grid-template-columns: 1fr 1100px 1fr;
   grid-template-rows: 6.4rem 100%;
   grid-template-areas:
     'header header header'
     '. content .';
   row-gap: 1.6rem;
 
-  @media (max-width: 900px) {
-    grid-template-columns: 10% 80% 10%;
+  @media (max-width: 1101px) {
+    grid-template-columns: 1fr 900px 1fr;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 901px) {
+    grid-template-columns: 1fr 600px 1fr;
+  }
+
+  @media (max-width: 601px) {
     grid-template-columns: 1.6rem 1fr 1.6rem;
   }
 `;
@@ -34,6 +38,7 @@ export const Header = styled.div`
 
   h1 {
     color: #fff;
+    font-family: 'Lilita One', sans-serif;
   }
 
   input {
@@ -55,17 +60,23 @@ export const Container = styled.div`
   grid-area: content;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-auto-rows: minmax(300px, auto);
+  /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-auto-rows: minmax(300px, auto); */
   grid-auto-flow: row dense;
   grid-gap: 1.6rem;
+  align-content: start;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1101px) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 901px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 601px) {
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -82,11 +93,12 @@ export const CardProduct = styled.div`
   }
 
   > div {
-    padding: 0.8rem 1.6rem;
+    padding: 0.8rem 1.6rem 1.6rem;
     /* border: 1px solid red; */
 
     p {
       font-size: 1.8rem;
+      margin-bottom: 0.8rem;
     }
 
     strong {
@@ -97,8 +109,8 @@ export const CardProduct = styled.div`
       }
     }
 
-    div {
-      margin-top: 1.6rem;
+    div:last-child {
+      margin-top: 1.6rem !important;
       display: flex;
       align-items: center;
       justify-content: space-between;
