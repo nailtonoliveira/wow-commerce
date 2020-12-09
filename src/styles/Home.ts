@@ -36,17 +36,35 @@ export const Header = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  h1 {
+  a {
+    text-decoration: none;
     color: #fff;
     font-family: 'Lilita One', sans-serif;
+    font-size: 3.6rem;
   }
 
+  div {
+    a:first-of-type {
+      margin-right: 0.8rem;
+    }
+
+    a {
+      width: 24px;
+      height: 24px;
+    }
+  }
+`;
+
+export const InputSearch = styled.div`
+  border: 2px solid #7e57c2;
+  border-radius: 8px;
+  height: 40px;
+  max-width: 300px;
+
   input {
+    height: 100%;
+    border: none;
     background: transparent;
-    border: 2px solid #7e57c2;
-    border-radius: 8px;
-    min-width: 400px;
-    height: 40px;
     padding: 0 1.6rem;
     color: white;
 
@@ -54,15 +72,18 @@ export const Header = styled.div`
       color: rgba(255, 255, 255, 0.5);
     }
   }
+
+  svg {
+    margin-right: 1.6rem;
+    color: #fff;
+  }
 `;
 
 export const Container = styled.div`
   grid-area: content;
 
   display: grid;
-  /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
   grid-template-columns: repeat(4, 1fr);
-  /* grid-auto-rows: minmax(300px, auto); */
   grid-auto-flow: row dense;
   grid-gap: 1.6rem;
   align-content: start;
@@ -93,7 +114,10 @@ export const CardProduct = styled.div`
   }
 
   > div {
+    display: flex;
     padding: 0.8rem 1.6rem 1.6rem;
+    flex-direction: column;
+    justify-content: space-between;
     /* border: 1px solid red; */
 
     p {
@@ -110,7 +134,7 @@ export const CardProduct = styled.div`
     }
 
     div:last-child {
-      margin-top: 1.6rem !important;
+      margin-top: 1.6rem;
       display: flex;
       align-items: center;
       justify-content: space-between;

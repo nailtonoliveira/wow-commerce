@@ -1,5 +1,7 @@
 import basePtBR from './basePtBR';
+import en from './en';
 
 export default {
-  pt: basePtBR,
+  ptBR: basePtBR,
+  en,
 };

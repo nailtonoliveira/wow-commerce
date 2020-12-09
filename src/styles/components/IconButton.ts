@@ -13,10 +13,10 @@ export default styled.button`
 
   color: white;
   background-color: #673ab7;
-  transition: background-color 0.5s;
+  transition: background-color 0.2s;
 
   &:hover {
-    background-color: ${lightenDarkenColor('#673ab7', 10)};
+    background-color: ${lightenDarkenColor('#673ab7', 30)};
   }
 
   &:active {

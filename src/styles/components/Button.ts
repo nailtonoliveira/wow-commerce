@@ -19,10 +19,10 @@ export default styled.button`
   font-weight: bold;
   font-size: 1.4rem;
 
-  transition: background-color 0.5s;
+  transition: background-color 0.2s;
 
   &:hover {
-    background-color: ${lightenDarkenColor('#673ab7', 10)};
+    background-color: ${lightenDarkenColor('#673ab7', 30)};
   }
 
   &:active {
