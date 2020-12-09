@@ -74,7 +74,7 @@ export const InputSearch = styled.div`
   }
 
   svg {
-    margin-right: 1.6rem;
+    margin-right: 1.2rem;
     color: #fff;
   }
 `;
@@ -83,17 +83,17 @@ export const Container = styled.div`
   grid-area: content;
 
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
   grid-auto-flow: row dense;
   grid-gap: 1.6rem;
   align-content: start;
 
   @media (max-width: 1101px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
   }
 
   @media (max-width: 901px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
   }
 
   @media (max-width: 601px) {
@@ -113,24 +113,19 @@ export const CardProduct = styled.div`
     border-top-right-radius: 1.2rem;
   }
 
-  > div {
+  & > div {
     display: flex;
     padding: 0.8rem 1.6rem 1.6rem;
     flex-direction: column;
     justify-content: space-between;
-    /* border: 1px solid red; */
 
     p {
+      width: 100%;
+      white-space: pre;
+      text-overflow: ellipsis;
+      overflow: hidden;
       font-size: 1.8rem;
       margin-bottom: 0.8rem;
-    }
-
-    strong {
-      font-size: 2rem;
-
-      span {
-        font-size: 4.8rem;
-      }
     }
 
     div:last-child {

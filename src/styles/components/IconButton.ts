@@ -3,23 +3,28 @@ import { lightenDarkenColor } from '../../utils/lightenDarkenColor';
 
 export default styled.button`
   border: none;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
 
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  color: white;
-  background-color: #673ab7;
+  color: #673ab7;
+  background-color: transparent;
   transition: background-color 0.2s;
 
   &:hover {
-    background-color: ${lightenDarkenColor('#673ab7', 30)};
+    background-color: rgba(0, 0, 0, 0.08);
   }
 
   &:active {
-    background-color: ${lightenDarkenColor('#673ab7', -30)};
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
   }
 `;

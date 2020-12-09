@@ -19,13 +19,15 @@ export default styled.button`
   font-weight: bold;
   font-size: 1.4rem;
 
-  transition: background-color 0.2s;
+  transition: all 0.2s;
 
   &:hover {
     background-color: ${lightenDarkenColor('#673ab7', 30)};
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
 
   &:active {
     background-color: ${lightenDarkenColor('#673ab7', -30)};
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
   }
 `;

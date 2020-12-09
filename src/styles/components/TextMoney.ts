@@ -13,8 +13,8 @@ export default styled.div`
   }
 
   span:nth-child(2) {
-    font-size: 4.8rem;
-    line-height: 4.8rem;
+    font-size: 3.2rem;
+    line-height: 3.2rem;
     font-weight: bold;
   }
 

@@ -8,7 +8,7 @@ const TextMoney = ({ children }: TextMoneyProps): JSX.Element => {
   return (
     <TextMoneyStyled>
       <span id="currencySymbol">R$</span>
-      <span id="integerPart">150</span>
+      <span id="integerPart">{children}</span>
       <span id="decimalPart">,00</span>
     </TextMoneyStyled>
   );

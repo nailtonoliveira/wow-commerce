@@ -1,9 +1,12 @@
+import { useMemo } from 'react';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { MdAddShoppingCart } from 'react-icons/md';
 import { FiSearch } from 'react-icons/fi';
 
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import Button from '../components/Button';
 import IconButton from '../components/IconButton';
 import TextMoney from '../components/TextMoney';
@@ -18,8 +21,39 @@ import {
   CardProduct,
 } from '../styles/Home';
 
-const Home = (): JSX.Element => {
+interface Product {
+  id: number;
+  name: string;
+  price: 150;
+  image: string;
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  try {
+    const response = await fetch('http://localhost:3333/products');
+    const products: Product[] = await response.json();
+    return {
+      props: {
+        products,
+      },
+    };
+  } catch {
+    return {
+      props: {
+        products: [],
+      },
+    };
+  }
+};
+
+const Home = ({
+  products,
+}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
   const { t } = useTranslation();
+
+  const productList = useMemo(() => {
+    return products || [];
+  }, [products]);
 
   return (
     <Main>
@@ -58,89 +92,25 @@ const Home = (): JSX.Element => {
       </Header>
 
       <Container>
-        <CardProduct>
-          <img
-            src="https://cdn.dooca.store/292/products/camiseta-one-piece-luffy-aberta.jpg?v=1585747520"
-            alt="Camisa One Piece"
-          />
+        {productList.map(product => (
+          <CardProduct key={product.id}>
+            <img src={product.image} alt={product.name} />
 
-          <div>
-            <p>Product Name</p>
+            <div>
+              <p>{product.name}</p>
 
-            <TextMoney>R$ 150,00</TextMoney>
+              <TextMoney>{product.price}</TextMoney>
 
-            <div id="actionsWrapper">
-              <Button>{t('buyNow')}</Button>
+              <div id="actionsWrapper">
+                <Button>{t('buyNow')}</Button>
 
-              <IconButton>
-                <MdAddShoppingCart size={20} viewBox="0 0 24 24" />
-              </IconButton>
+                <IconButton>
+                  <MdAddShoppingCart />
+                </IconButton>
+              </div>
             </div>
-          </div>
-        </CardProduct>
-
-        <CardProduct>
-          <img
-            src="https://cdn.dooca.store/292/products/camiseta-one-piece-luffy-aberta.jpg?v=1585747520"
-            alt="Camisa One Piece"
-          />
-
-          <div>
-            <p>Product Name</p>
-
-            <TextMoney>R$ 150,00</TextMoney>
-
-            <div id="actionsWrapper">
-              <Button>{t('buyNow')}</Button>
-
-              <IconButton>
-                <MdAddShoppingCart size={20} viewBox="0 0 24 24" />
-              </IconButton>
-            </div>
-          </div>
-        </CardProduct>
-
-        <CardProduct>
-          <img
-            src="https://cdn.dooca.store/292/products/camiseta-one-piece-luffy-aberta.jpg?v=1585747520"
-            alt="Camisa One Piece"
-          />
-
-          <div>
-            <p>Product Name</p>
-
-            <TextMoney>R$ 150,00</TextMoney>
-
-            <div id="actionsWrapper">
-              <Button>{t('buyNow')}</Button>
-
-              <IconButton>
-                <MdAddShoppingCart size={20} viewBox="0 0 24 24" />
-              </IconButton>
-            </div>
-          </div>
-        </CardProduct>
-
-        <CardProduct>
-          <img
-            src="https://cdn.dooca.store/292/products/camiseta-one-piece-luffy-aberta.jpg?v=1585747520"
-            alt="Camisa One Piece"
-          />
-
-          <div>
-            <p>Product Name</p>
-
-            <TextMoney>R$ 150,00</TextMoney>
-
-            <div id="actionsWrapper">
-              <Button>{t('buyNow')}</Button>
-
-              <IconButton>
-                <MdAddShoppingCart size={20} viewBox="0 0 24 24" />
-              </IconButton>
-            </div>
-          </div>
-        </CardProduct>
+          </CardProduct>
+        ))}
       </Container>
     </Main>
   );
