@@ -3,25 +3,25 @@
     {
       "id": 1,
       "name": "Camiseta One Piece",
-      "price": 150,
+      "price": 150.10,
       "image": "https://cdn.dooca.store/292/products/camiseta-one-piece-luffy-aberta.jpg?v=1585747520"
     },
     {
       "id": 2,
       "name": "Camiseta Dragon Ball Z",
-      "price": 180,
+      "price": 180.99,
       "image": "https://img.elo7.com.br/product/zoom/1DE67E4/10-camisa-camiseta-dragon-ball-super-tevenda-atacado-goku-camisa.jpg"
     },
     {
       "id": 3,
       "name": "Caneca One Piece",
-      "price": 45,
+      "price": 45.85,
       "image": "https://cdn.awsli.com.br/600x450/286/286000/produto/24461484/3a6d65a159.jpg"
     },
     {
       "id": 4,
       "name": "Caneca Dragon Ball Z",
-      "price": 55,
+      "price": 55.01,
       "image": "https://a-static.mlcdn.com.br/618x463/caneca-dragon-ball-z-goku-logo-03-canecas-personalizadas/canecaspersonalizadas2/4271-1927/1b1e81446ccab11381086d4d8de042bd.jpg"
     }
   ]

@@ -1,25 +1,20 @@
 import { useMemo } from 'react';
 
-import Image from 'next/image';
+import Head from 'next/head';
 import Link from 'next/link';
 
 import { MdAddShoppingCart } from 'react-icons/md';
-import { FiSearch } from 'react-icons/fi';
 
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import Button from '../components/Button';
+import Header from '../components/Header';
 import IconButton from '../components/IconButton';
+import MainWrapper from '../components/MainWrapper';
 import TextMoney from '../components/TextMoney';
 
 import useTranslation from '../hooks/useTranslation';
 
-import {
-  Main,
-  Header,
-  InputSearch,
-  Container,
-  CardProduct,
-} from '../styles/Home';
+import { Container, CardProduct } from '../styles/Home';
 
 interface Product {
   id: number;
@@ -56,63 +51,40 @@ const Home = ({
   }, [products]);
 
   return (
-    <Main>
-      <Header>
-        <Link href="/">
-          <a>Wow Commerce</a>
-        </Link>
+    <>
+      <Head>
+        <title>Home - Wow Commerce</title>
+      </Head>
+      <MainWrapper>
+        <Header />
 
-        <InputSearch>
-          <input type="text" placeholder={t('search')} />
-          <FiSearch />
-        </InputSearch>
+        <Container>
+          {productList.map(product => (
+            <CardProduct key={product.id}>
+              <Link href={`product/${product.id}`}>
+                <img src={product.image} alt={product.name} />
+              </Link>
 
-        <div>
-          <Link href="/" locale="pt-BR">
-            <a href="/">
-              <Image
-                src="/img/brazil.png"
-                alt="Brasil"
-                width="24"
-                height="24"
-              />
-            </a>
-          </Link>
-          <Link href="/" locale="en">
-            <a href="/">
-              <Image
-                src="/img/english.png"
-                alt="Brasil"
-                width="24"
-                height="24"
-              />
-            </a>
-          </Link>
-        </div>
-      </Header>
+              <div>
+                <Link href={`product/${product.id}`}>
+                  <a>{product.name}</a>
+                </Link>
 
-      <Container>
-        {productList.map(product => (
-          <CardProduct key={product.id}>
-            <img src={product.image} alt={product.name} />
+                <TextMoney>{product.price}</TextMoney>
 
-            <div>
-              <p>{product.name}</p>
+                <div id="actionsWrapper">
+                  <Button>{t('buyNow')}</Button>
 
-              <TextMoney>{product.price}</TextMoney>
-
-              <div id="actionsWrapper">
-                <Button>{t('buyNow')}</Button>
-
-                <IconButton>
-                  <MdAddShoppingCart />
-                </IconButton>
+                  <IconButton>
+                    <MdAddShoppingCart />
+                  </IconButton>
+                </div>
               </div>
-            </div>
-          </CardProduct>
-        ))}
-      </Container>
-    </Main>
+            </CardProduct>
+          ))}
+        </Container>
+      </MainWrapper>
+    </>
   );
 };
 
